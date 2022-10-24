@@ -1,16 +1,17 @@
 import {Row, Col} from 'react-bootstrap';
+import { productsArray } from '../productStore'
+import ProductCard from '../components/ProductCard';
 
 function Store() {
     return (
         <>
-            <h1>Welcome to the store!</h1>
+            <h1 align="center" className='p-3'>Welcome to the store!</h1>
             <Row xs={1} md={3} className="g-4">
-                <Col align="center">
-                    <h1>Product</h1>
-                </Col>
-                <Col align="center">
-                    <h1>Product</h1>
-                </Col>
+                {productsArray.map((product, idx) => (
+                    <Col align="center" key={idx}>
+                        <h1>{product.title}</h1>
+                    </Col>
+                ))}
             </Row>
         </>
     )
